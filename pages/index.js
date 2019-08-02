@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import Layout from "./Layout";
-
+import Layout from "../components/Layout";
+import Chat from "../components/Chat";
 class IndexPage extends Component {
   state = {
     user: null
@@ -33,20 +33,29 @@ class IndexPage extends Component {
                   className="d-block w-100 h1 text-light"
                   style={{ marginTop: -50 }}
                 >
-                  {user
-                    ? Component(
-                        <span>
-                          <span style={{ color: "#999" }}>Hello!</span>
-                          {user}
-                        </span>
-                      )
-                    : `What is your name?`
-                    }
+                  {user ? (
+                    <span>
+                      <span style={{ color: "#999" }}>Hello! </span>
+                      {user}
+                    </span>
+                  ) : (
+                    `What is your name?`
+                  )}
                 </span>
-                { !user && <input type="text" className="form-control mt-3 px-3 py-2" onKeyUp={this.handleKeyUp} autoComplete="off" style={nameInputStyles} /> }
+                {!user && (
+                  <input
+                    type="text"
+                    className="form-control mt-3 px-3 py-2"
+                    onKeyUp={this.handleKeyUp}
+                    autoComplete="off"
+                    style={nameInputStyles}
+                  />
+                )}
               </div>
             </section>
-            <section className="col-md-4 position-relative d-flex flex-wrap h-100 align-items-start align-content-between bg-white px-0"></section>
+            <section className="col-md-4 position-relative d-flex flex-wrap h-100 align-items-start align-content-between bg-white px-0">
+              {user && <Chat activeUser={user} />}
+            </section>
           </div>
         </main>
       </Layout>
