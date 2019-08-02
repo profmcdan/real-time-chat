@@ -1,0 +1,24 @@
+import React, { Component, Fragment } from "react";
+import Head from "next/head";
+
+const Layout = props => (
+  <Fragment>
+    <Head>
+      <meta charSet="utf-8" />
+      <meta
+        name="viewport"
+        content="width=device-width initial-scale=1, shrink-to-fit=no"
+      />
+      <link
+        rel="stylesheet"
+        href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+        crossorigin="anonymous"
+      />
+      <title>{props.pageTitle || "RealTime Chat"}</title>
+    </Head>
+    {props.children}
+  </Fragment>
+);
+
+export default Layout;
